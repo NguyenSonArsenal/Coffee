@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en" >
+
+<head>
+
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="csrf-token" content="XXVeixnoIvQt2PRXJrYAdzj2WJBwGE52arf0YXTg">
+    <!--====== Title ======-->
+    <title>Frozen N fry</title>
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="http://localhost/coffee/assets/front/img/5ff08fe6b9409.png" type="image/png">
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="http://localhost/coffee/assets/front/css/bootstrap.min.css">
+
+    <!--====== flaticon css ======-->
+    <link rel="stylesheet" href="http://localhost/coffee/assets/front/css/flaticon.css">
+
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="http://localhost/coffee/assets/front/css/magnific-popup.css">
+
+    <!--====== time and date picker ======-->
+    <link rel="stylesheet" href="http://localhost/coffee/assets/front/css/jquery-ui.css">
+
+    <!--====== jquery timepicker ======-->
+    <link rel="stylesheet" href="http://localhost/coffee/assets/front/css/jquery.timepicker.min.css">
+
+
+    <!--====== nice select css ======-->
+    <link rel="stylesheet" href="http://localhost/coffee/assets/front/css/nice-select.css">
+    <link rel="stylesheet" href="http://localhost/coffee/assets/front/css/plugin.min.css">
+
+    <!--====== animate css ======-->
+    <link rel="stylesheet" href="http://localhost/coffee/assets/front/css/animate.min.css">
+
+    <!--====== fontawesome css ======-->
+    <link rel="stylesheet" href="http://localhost/coffee/assets/front/css/all.min.css">
+
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="http://localhost/coffee/assets/front/css/slick.css">
+
+    <!--====== jQuery UI css ======-->
+    <link rel="stylesheet" href="http://localhost/coffee/assets/front/css/jquery-ui.min.css">
+
+    <!--====== Default css ======-->
+
+    <link rel="stylesheet" href="http://localhost/coffee/assets/front/css/default.css">
+
+        <style>
+    .back-to-top {
+        bottom: 50px;
+    }
+    .back-to-top.show {
+        right: 20px;
+    }
+    </style>
+                <!--====== Style css ======-->
+    <link rel="stylesheet" href="http://localhost/coffee/assets/front/css/style.css">
+    <link rel="stylesheet" href="http://localhost/coffee/assets/front/css/styles.php?color=054A08">
+    
+    
+</head>
+
+<body>
+
+    <!--====== PRELOADER PART START ======-->
+
+    <div id="preloader">
+        <div class="loader revolve">
+            <div class="layer">
+                <div class="round"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--====== PRELOADER PART ENDS ======-->
+
+    <!--====== HEADER PART START ======-->
+
+    <header class="header-area">
+        <div class="navigation">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="support-bar">
+                            <div class="row">
+                                <div class="col-xl-6 d-none d-xl-block">
+                                    <div class="infos">
+                                        <span><i class="fas fa-envelope-open-text"></i> fchuynhhoa2000@gmail.com</span>
+                                        <span><i class="fas fa-phone-alt"></i> 0907253910</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-xl-6 col-12">
+                                    <div class="links">
+                                                                                <ul class="social-links">
+                                                                                        <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                                                                        <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                                                                        <li><a href="https://bd.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                                                                        <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                                                                        <li><a href="https://dribbble.com/" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+                                                                                    </ul>
+                                        
+                                                                                    <div class="language">
+                                                <a class="language-btn" href="#"><i class="fas fa-globe-asia"></i> English</a>
+                                                <ul class="language-dropdown">
+                                                                                                        <li><a href='http://localhost/coffee/changelanguage/en'>English</a></li>
+                                                                                                        <li><a href='http://localhost/coffee/changelanguage/ar'>Arabic</a></li>
+                                                                                                        <li><a href='http://localhost/coffee/changelanguage/vi'>Vietnamese</a></li>
+                                                                                                    </ul>
+                                            </div>
+                                        
+                                                                                <ul class="login">
+                                            <li><a href="http://localhost/coffee/login">Login</a></li>
+                                        </ul>
+                                                                                                                        <div id="cartQuantity" class="cart">
+                                            <a href="http://localhost/coffee/cart">
+                                                <i class="fas fa-cart-plus"></i>
+                                                                                                <span class="cart-quantity">0</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="http://localhost/coffee">
+                                <img src="http://localhost/coffee/assets/front/img/5ff08fd5ce860.png" alt="Logo">
+                            </a> <!-- logo -->
+
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarFive" aria-controls="navbarFive" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button> <!-- navbar toggler -->
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarFive">
+                                <ul class="navbar-nav m-xl-auto mr-auto">
+
+                                    <li class="nav-item"><a class="page-scroll" href="http://localhost/coffee">Home</a>
+                                    </li>
+
+                                                                        <li class="nav-item"><a class="page-scroll" href="http://localhost/coffee/menus">Menu</a>
+                                    
+                                                                        <li class="nav-item"><a class="page-scroll" href="http://localhost/coffee/items">Items</a>
+                                    
+
+                                                                        <li class="nav-item"><a class="page-scroll" href="#">Pages <i class="fa fa-angle-down"></i></a>
+                                        <ul class="sub-menu">
+                                                                                        <li><a href="http://localhost/coffee/About-Us/1/page">About Us</a></li>
+                                                                                        <li><a href="http://localhost/coffee/Terms-&amp;-Conditions/3/page">Terms &amp; Conditions</a></li>
+                                                                                        <li><a href="http://localhost/coffee/Privacy-Policy/4/page">Privacy Policy</a></li>
+                                                                                                                                    <li class="nav-item"><a class="page-scroll" href="http://localhost/coffee/gallery">Gallery</a>
+                                            </li>
+                                                                                                                                    <li class="nav-item"><a class="page-scroll" href="http://localhost/coffee/team">Team</a>
+                                            </li>
+                                                                                    </ul>
+                                    </li>
+                                    
+                                                                        <li class="nav-item"><a class="page-scroll" href="http://localhost/coffee/blogs">Blogs</a>
+                                    </li>
+                                    
+                                                                        <li class="nav-item"><a class="page-scroll" href="http://localhost/coffee/contact">Contact</a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+
+                            <div class="navbar-btns d-flex align-items-center">
+                                <div class="header-times d-none d-md-inline-block">
+                                    <i class="flaticon-time"></i>
+                                    <span>Opening Time</span>
+                                    <p>Mon to Friday  9Am - 11 Pm</p>
+                                </div>
+                                                                    <a class="main-btn main-btn-2 d-none d-sm-inline-block" href="http://localhost/coffee/reservation/form">RESERVATION</a>
+                                                            </div>
+                        </nav> <!-- navbar -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div>
+    </header>
+
+    <!--====== HEADER PART ENDS ======-->
+
+        <!--====== PAGE TITLE PART START ======-->
+
+    <section class="page-title-area d-flex align-items-center" style="background-image:url('http://localhost/coffee/assets/front/img/5f4b4733dc844.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-title-item text-center">
+                    <h2 class="title">404</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="http://localhost/coffee"><i class="flaticon-home"></i>Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">404</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--====== PAGE TITLE PART ENDS ======-->
+
+
+  <!--    Error section start   -->
+  <div class="error-section">
+     <div class="container">
+        <div class="row">
+           <div class="col-lg-6">
+              <div class="not-found">
+                 <img src="http://localhost/coffee/assets/front/img/404.png" alt="">
+              </div>
+           </div>
+           <div class="col-lg-6">
+              <div class="error-txt">
+                 <div class="oops">
+                    <img src="http://localhost/coffee/assets/front/img/oops.png" alt="">
+                 </div>
+                 <h2>You&#039;re lost...</h2>
+                 <p>The page you are looking for might have been moved, renamed, or might never existed.</p>
+                 <a href="http://localhost/coffee" class="go-home-btn">Back Home</a>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+  <!--    Error section end   -->
+ <!--    announcement banner section start   -->
+ <a class="announcement-banner" href="http://localhost/coffee/assets/front/img/5f2d303989f93.jpg"></a>
+ <!--    announcement banner section end   -->
+
+
+    <!--====== FOOTER PART START ======-->
+            <footer class="footer-area footer-area-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer-widget-1">
+                            <div class="header-times d-none d-md-inline-block">
+                                <i class="flaticon-time"></i>
+                                <h5>Opening Time</h5>
+                                <span>Mon to Friday  9Am - 11 Pm</span>
+                            </div>
+                            <p>We are a awward winning multinaitonal Company. We Believe quality and standard worlwidex Consider.</p>
+                            <ul>
+                                                                <li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
+                                                                <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
+                                                                <li><a href="https://bd.linkedin.com/"><i class="fab fa-linkedin-in"></i></a></li>
+                                                                <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
+                                                                <li><a href="https://dribbble.com/"><i class="fab fa-dribbble"></i></a></li>
+                                                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-3 order-lg-2">
+                        <div class="footer-widget-2 text-left text-sm-center ">
+                            <a href="http://localhost/coffee"><img src="http://localhost/coffee/assets/front/img/5ff08fb5e0a8f.png" alt="logo"></a>
+                            <ul class="pt-25">
+                                                                                            </ul>
+                                                        <a class="pt-30" href="javascript:;">
+                                <img src="http://localhost/coffee/assets/front/img/5f51c3c2c958a.png" alt="">
+                            </a>
+                                                    </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 order-2 order-lg-3">
+                        <h3 class="subscribe-title">Subscribe Here</h3>
+                        <form id="subscribeForm" action="http://localhost/coffee/subscribe" method="post" class="subscribe-form">
+                            <input type="hidden" name="_token" value="XXVeixnoIvQt2PRXJrYAdzj2WJBwGE52arf0YXTg">                            <div class="subscribe-inputs">
+                                <input name="email" type="text" placeholder="Enter Your Email">
+                                <button type="submit"><i class="far fa-paper-plane"></i></button>
+                            </div>
+                            <p id="erremail" class="text-danger mb-0 err-email"></p>
+                        </form>
+                        <div class="footer-widget-3">
+                            <ul>
+                                
+                                                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+            <div class="footer-copyright-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-copyright d-block justify-content-center d-md-flex">
+                        Copyright © 2019. All rights reserved by Frozen N fry.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--====== FOOTER PART ENDS ======-->
+
+    <!--====== GO TO TOP PART START ======-->
+
+    <div class="go-top-area">
+        <div class="go-top-wrap">
+            <div class="go-top-btn-wrap">
+                <div class="go-top go-top-btn">
+                    <i class="fa fa-angle-double-up"></i>
+                    <i class="fa fa-angle-double-up"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--====== GO TO TOP PART ENDS ======-->
+
+
+    
+    <div class="cookie">
+        <div class="js-cookie-consent cookie-consent">
+
+    <div class="container">
+      <div class="cookie-container">
+        <span class="cookie-consent__message">
+          Your experience on this site will be improved by allowing cookies.
+        </span>
+
+        <button class="js-cookie-consent-agree cookie-consent__agree">
+            Allow Cookies
+        </button>
+      </div>
+    </div>
+
+</div>
+
+    <script>
+        "use strict";
+
+        window.laravelCookieConsent = (function () {
+
+            const COOKIE_VALUE = 1;
+            const COOKIE_DOMAIN = 'localhost';
+
+            function consentWithCookies() {
+                setCookie('laravel_cookie_consent', COOKIE_VALUE, 7300);
+                hideCookieDialog();
+            }
+
+            function cookieExists(name) {
+                return (document.cookie.split('; ').indexOf(name + '=' + COOKIE_VALUE) !== -1);
+            }
+
+            function hideCookieDialog() {
+                const dialogs = document.getElementsByClassName('js-cookie-consent');
+
+                for (let i = 0; i < dialogs.length; ++i) {
+                    dialogs[i].style.display = 'none';
+                }
+            }
+
+            function setCookie(name, value, expirationInDays) {
+                const date = new Date();
+                date.setTime(date.getTime() + (expirationInDays * 24 * 60 * 60 * 1000));
+                document.cookie = name + '=' + value
+                    + ';expires=' + date.toUTCString()
+                    + ';domain=' + COOKIE_DOMAIN
+                    + ';path=/'
+                    + '';
+            }
+
+            if (cookieExists('laravel_cookie_consent')) {
+                hideCookieDialog();
+            }
+
+            const buttons = document.getElementsByClassName('js-cookie-consent-agree');
+
+            for (let i = 0; i < buttons.length; ++i) {
+                buttons[i].addEventListener('click', consentWithCookies);
+            }
+
+            return {
+                consentWithCookies: consentWithCookies,
+                hideCookieDialog: hideCookieDialog
+            };
+        })();
+    </script>
+
+    </div>
+    
+
+        <script>
+        "use strict";
+        var lat = '36.7783';
+        var lng = '119.4179';
+        var is_announcement = 1;
+        var announcement_delay = 2.00;
+        var rtl = 0;
+        var position = "left";
+        var symbol = "$";
+    </script>
+
+
+    <!--====== jquery js ======-->
+    <script src="http://localhost/coffee/assets/front/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="http://localhost/coffee/assets/front/js/vendor/jquery.3.2.1.min.js"></script>
+
+    <!--====== Google Recaptcha ======-->
+    <script src="http://localhost/coffee/assets/front/js/recaptcha-api.js?" async defer></script>
+
+    <!--====== Bootstrap js ======-->
+    <script src="http://localhost/coffee/assets/front/js/bootstrap.min.js"></script>
+    <script src="http://localhost/coffee/assets/front/js/popper.min.js"></script>
+
+    <!--====== jQuery UI ======-->
+    <script src="http://localhost/coffee/assets/front/js/jquery.ui.js"></script>
+
+    <!--====== Slick js ======-->
+    <script src="http://localhost/coffee/assets/front/js/slick.min.js"></script>
+
+    <!--====== Isotope js ======-->
+    <script src="http://localhost/coffee/assets/front/js/isotope.pkgd.min.js"></script>
+
+    <!--====== Images Loaded js ======-->
+    <script src="http://localhost/coffee/assets/front/js/imagesloaded.pkgd.min.js"></script>
+
+    <!--====== wow js ======-->
+    <script src="http://localhost/coffee/assets/front/js/wow.min.js"></script>
+
+    <!--====== Images Loaded js ======-->
+    <script src="http://localhost/coffee/assets/front/js/jquery.nice-select.min.js"></script>
+
+    <!--====== Magnific Pz js ======-->
+    <script src="http://localhost/coffee/assets/front/js/jquery.magnific-popup.min.js"></script>
+    <script src="http://localhost/coffee/assets/front/js/toastr.min.js"></script>
+
+    <!--====== Ajax Contact js ======-->
+    <script src="http://localhost/coffee/assets/front/js/toastr.min.js"></script>
+
+
+    <!--====== time and date picker js ======-->
+    <script src="http://localhost/coffee/assets/front/js/jquery-ui.min.js"></script>
+    <script src="http://localhost/coffee/assets/front/js/jquery.timepicker.min.js"></script>
+
+    <!--====== Cart js ======-->
+    <script src="http://localhost/coffee/assets/front/js/cart.js"></script>
+    <!--====== Misc js ======-->
+    <script src="http://localhost/coffee/assets/front/js/misc.js"></script>
+    <!--====== Main js ======-->
+    <script src="http://localhost/coffee/assets/front/js/main.js"></script>
+    
+    
+    
+    
+</body>
+
+</html>
