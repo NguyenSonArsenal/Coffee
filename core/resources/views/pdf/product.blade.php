@@ -23,7 +23,7 @@
                     <div class="logo text-center" style="margin-bottom: 20px; padding-top: 30px;">
                         {{-- <img src="{{asset('assets/front/img/' . $bs->logo)}}" alt=""> --}}
 
-                        <img src="{{str_replace ( 'core' , '' , base_path() ) . 'assets/front/img/' . $bs->logo}}" alt="">
+                        <img src="{{public_path('/assets/front/img/' . $bs->logo)}}" alt="">
                     </div>
                     <div class="confirmation-message bg-primary" style="padding: 5px 0px;margin-bottom: 40px;">
                         <h2 class="text-center"><strong>{{__('ORDER INVOICE')}}</strong></h2>
@@ -173,7 +173,7 @@
                                 <tr>
                                     <th>{{$key+1}}</th>
                                     <td>
-                    <img src="{{asset('assets/front/img/product/featured/'.$item->image)}}" lt="image" width="100">
+                    <img src="{{public_path('/assets/front/img/product/featured/'.$item->image)}}" lt="image" width="100">
 
                                         {{-- <img src="{{str_replace ( 'core' , '' , base_path() ) . 'assets/front/img/product/featured/'.$item->image}}" alt="image" width="100"> --}}
                                     </td>

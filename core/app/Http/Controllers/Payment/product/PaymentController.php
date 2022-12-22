@@ -328,7 +328,7 @@ class PaymentController extends Controller
             }
 
             $fileName = Str::random(4) . time() . '.pdf';
-            $path = 'assets/front/invoices/product/' . $fileName;
+            $path = public_path() . '/assets/front/invoices/product/' . $fileName;
             $data['order']  = $order;
             $pdf = PDF::loadView('pdf.product', $data)->save($path);
 

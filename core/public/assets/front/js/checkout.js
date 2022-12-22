@@ -15,6 +15,11 @@
 
     shipping = parseFloat(shipCharge);
     total = parseFloat(parseFloat(grantotal) + parseFloat(shipCharge));
+
+      shipping = shipping.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+      total = total.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+
+
     $('.shipping').text(shipping);
     $('.grandTotal').text(total);
 
@@ -70,4 +75,4 @@
   //     });
   //   });
 
-})(jQuery); 
+})(jQuery);

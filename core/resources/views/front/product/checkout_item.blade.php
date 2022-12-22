@@ -18,14 +18,14 @@
             </div>
         </div>
 
-        
+
 
     </div>
 </section>
 <!--====== PAGE TITLE PART ENDS ======-->
 <!--   hero area end    -->
-  
- <!--================Billing Details Area =================-->    
+
+ <!--================Billing Details Area =================-->
  <section class="checkout-area">
     <form action="{{route('product.checkout_item.submit')}}" method="POST" id="payment">
         @csrf
@@ -181,7 +181,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">    
+            <div class="row">
                 @if($shippings->count() > 0)
                     <div class="col-12 mb-5">
                         <div class="table">
@@ -190,28 +190,33 @@
                             </div>
                             <table class="cart-table shipping-method">
                                 <thead class="cart-header">
-                                    <tr>
-                                        <th>#</th>
-                                        <th>{{__('Method')}}</th>
-                                        <th class="price">{{__('Cost')}}</th>
-                                    </tr>
+                                <tr>
+                                    <th>#</th>
+                                    <th>{{__('Method')}}</th>
+                                    <th class="price">{{__('Cost')}}</th>
+                                </tr>
                                 </thead>
                                 <tbody>
 
-                                    @if($shippings)
-                                        @foreach ($shippings as $key => $charge)
+                                @if($shippings)
+                                    @foreach ($shippings as $key => $charge)
                                         <tr>
                                             <td>
-                                                <input type="radio" {{$key == 0 ? 'checked' : ''}} name="shipping_charge" {{$cart == null ? 'disabled' : ''}} data="{{$charge->charge}}"   class="shipping-charge"  value="{{$charge->id}}">
+                                                <input type="radio"
+                                                       {{$key == 0 ? 'checked' : ''}} name="shipping_charge"
+                                                       {{$cart == null ? 'disabled' : ''}} data="{{$charge->charge}}"
+                                                       class="shipping-charge" value="{{$charge->id}}">
                                             </td>
                                             <td>
-                                            <p class="mb-2"><strong>{{convertUtf8($charge->title)}}</strong></p>
+                                                <p class="mb-2"><strong>{{convertUtf8($charge->title)}}</strong></p>
                                                 <p><small>{{convertUtf8($charge->text)}}</small></p>
                                             </td>
-                                            <td>{{$be->base_currency_symbol_position == 'left' ? $be->base_currency_symbol : ''}} <span>{{number_format($charge->charge,0,',','.')}}</span> {{$be->base_currency_symbol_position == 'right' ? $be->base_currency_symbol : ''}}</td>
+                                            <td>{{$be->base_currency_symbol_position == 'left' ? $be->base_currency_symbol : ''}}
+                                                <span>{{number_format($charge->charge,0,',','.')}}</span> {{$be->base_currency_symbol_position == 'right' ? $be->base_currency_symbol : ''}}
+                                            </td>
                                         </tr>
-                                        @endforeach
-                                    @endif
+                                    @endforeach
+                                @endif
                                 </tbody>
                             </table>
                         </div>
@@ -257,7 +262,11 @@
                                     <td class="qty">
                                         <input class="quantity-spinner" disabled type="text" value="{{$item['qty']}}" name="quantity">
                                     </td>
-                                    <td class="price">{{$be->base_currency_symbol_position == 'left' ? $be->base_currency_symbol : ''}} {{$item['qty'] * $item['price']}} {{$be->base_currency_symbol_position == 'right' ? $be->base_currency_symbol : ''}}</td>
+                                    <td class="price">
+                                        {{$be->base_currency_symbol_position == 'left' ? $be->base_currency_symbol : ''}}
+                                        {{number_format($item['qty'] * $item['price'],0,',','.')}}
+                                        {{$be->base_currency_symbol_position == 'right' ? $be->base_currency_symbol : ''}}
+                                    </td>
                                 </tr>
                                 @endforeach
                                 @else
@@ -278,15 +287,24 @@
                         <ul class="cart-total-table">
                             <li class="clearfix">
                                 <span class="col col-title">{{__('Cart Subtotal')}}</span>
-                                <span class="col">{{$be->base_currency_symbol_position == 'left' ? $be->base_currency_symbol : ''}} <span data="{{round($total,2)}}" class="subtotal">{{number_format($total,0,',','.')}}</span> {{$be->base_currency_symbol_position == 'right' ? $be->base_currency_symbol : ''}}</span>
+                                <span class="col">{{$be->base_currency_symbol_position == 'left' ? $be->base_currency_symbol : ''}} <span
+                                        data="{{round($total,2)}}"
+                                        class="subtotal">{{number_format($total,0,',','.')}}</span> {{$be->base_currency_symbol_position == 'right' ? $be->base_currency_symbol : ''}}</span>
                             </li>
                             <li class="clearfix">
                                 <span class="col col-title">{{__('Shipping Charge')}}</span>
-                                <span class="col">{{$be->base_currency_symbol_position == 'left' ? $be->base_currency_symbol : ''}} <span data="{{$shippings->count() > 0 ? round($shippings[0]->charge,2) : 0}}" class="shipping">{{$shippings->count() > 0 ? round($shippings[0]->charge,2) : 0}}</span> {{$be->base_currency_symbol_position == 'right' ? $be->base_currency_symbol : ''}}</span>
+                                <span class="col">{{$be->base_currency_symbol_position == 'left' ? $be->base_currency_symbol : ''}}
+                                    <span
+                                        data="{{$shippings->count() > 0 ? round($shippings[0]->charge,2) : 0}}"
+                                        class="shipping">{{$shippings->count() > 0 ? number_format($shippings[0]->charge,0,',','.') : 0}}</span>
+                                    {{$be->base_currency_symbol_position == 'right' ? $be->base_currency_symbol : ''}}
+                                </span>
                             </li>
                             <li class="clearfix">
                                 <span class="col col-title">{{__('Order Total')}}</span>
-                                <span class="col">{{$be->base_currency_symbol_position == 'left' ? $be->base_currency_symbol : ''}} <span data="{{$shippings->count() > 0 ? round($total + $shippings[0]->charge,2) : number_format($total,0,',','.') }}" class="grandTotal">{{$shippings->count() > 0 ? number_format($total + $shippings[0]->charge,0,',','.') : number_format($total,0,',','.') }}</span> {{$be->base_currency_symbol_position == 'right' ? $be->base_currency_symbol : ''}}</span>
+                                <span class="col">{{$be->base_currency_symbol_position == 'left' ? $be->base_currency_symbol : ''}} <span
+                                        data="{{$shippings->count() > 0 ? round($total + $shippings[0]->charge,2) : number_format($total,0,',','.') }}"
+                                        class="grandTotal">{{$shippings->count() > 0 ? number_format($total + $shippings[0]->charge,0,',','.') : number_format($total,0,',','.') }}</span> {{$be->base_currency_symbol_position == 'right' ? $be->base_currency_symbol : ''}}</span>
                             </li>
                         </ul>
 
@@ -298,15 +316,15 @@
                                 {{-- @if ($paypal->status == 1) --}}
                                     {{-- <div class="option-block">
                                         <div class="radio-block">
-                                            
+
                                             <div class="checkbox" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                <input name="method" type="radio" class="paypal-check" value="paypal">                  
-                                                <a class="collapsed">                                              
+                                                <input name="method" type="radio" class="paypal-check" value="paypal">
+                                                <a class="collapsed">
                                                     <span>{{__('Paypal')}}</span>
                                                 </a> <br>
                                                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                                     <div class="card-body">
-                                                        Cửa hàng sẽ gửi đến địa chỉ của bạn, bạn vui lòng điền đẩy đủ thông tin tài khoản paypal để thanh toán đơn hàng. 
+                                                        Cửa hàng sẽ gửi đến địa chỉ của bạn, bạn vui lòng điền đẩy đủ thông tin tài khoản paypal để thanh toán đơn hàng.
                                                     </div>
                                                 </div>
                                             </div>
@@ -319,8 +337,8 @@
                                     <div class="option-block">
                                         <div class="radio-block">
                                             <div class="checkbox" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                <input name="method" type="radio" checked="checked" class="delivery-check" value="delivery">                  
-                                                <a class="collapsed">                                              
+                                                <input name="method" type="radio" checked="checked" class="delivery-check" value="delivery">
+                                                <a class="collapsed">
                                                 <span>{{__('Thanh Toán Khi Nhận Hàng ')}}</span>
                                                 </a> <br>
                                                 <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
@@ -337,18 +355,18 @@
                                 {{-- @if ($paypal->status == 1) --}}
                                     <div class="option-block">
                                         <div class="radio-block">
-                                            <div class="checkbox" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">                 
-                                                <input name="method" type="radio" class="atm-check" value="atm">                  
+                                            <div class="checkbox" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                <input name="method" type="radio" class="atm-check" value="atm">
                                                 <a class="collapsed" >
                                                 <span>{{__('Chuyển Khoản')}}</span>
                                                 </a>
-                                                    
+
                                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                                                     <div class="card-body">
                                                         <b>HƯỚNG DẪN THANH TOÁN</b><br />
 
                                                         {{__('Method_1')}}<br/>
-                                                        
+
                                                         {{__('Method_1')}}<br/>
                                                         Chủ Tài Khoản : <b><i>{{__('Name_ATM')}}</i></b><br/>
                                                         Số tài khoản : <b><i>{{__('STK_ATM')}}</i></b><br/>
@@ -361,8 +379,8 @@
                                 {{-- @endif --}}
 
                             </div>
-                            
-                            
+
+
                             <input type="hidden" name="cmd" value="_xclick">
                             <input type="hidden" name="no_note" value="1">
                             <input type="hidden" name="lc" value="UK">
@@ -383,15 +401,15 @@
         </div>
     </form>
 </section>
-<!--================End Billing Details Area =================-->   
+<!--================End Billing Details Area =================-->
 
 <style type="text/css">
   .form-group .form-control{
     color: #000!important;
   }
 </style>
-    
-    
+
+
 
 @endsection
 

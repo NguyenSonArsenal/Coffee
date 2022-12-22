@@ -61,7 +61,7 @@ class PaymentCODController extends Controller
         if (!Session::has('cart')) {
             return view('errors.404');
         }
-        
+
 
         $cart = Session::get('cart');
 
@@ -105,7 +105,7 @@ class PaymentCODController extends Controller
             'shpping_number' => 'present',
             'shpping_email' => 'present',
         ]);
-        
+
         $input = $request->all();
         // Validation Starts
         if (session()->has('lang')) {
@@ -119,12 +119,12 @@ class PaymentCODController extends Controller
 
         $title = 'Product Checkout';
         $success_url = action('Payment\product\PaymentCODController@payreturn');
-                
+
         $order['order_amount'] = round($total, 2);
         $total = round(($total / $be->base_currency_rate), 2);
 
         // var_dump($request->method);
-        
+
         if($request->method == 'delivery'){
             $order['order_number'] = "COD_" . Str::random(4) . now()->format('dmYHis');
             $txnid = "COD_" . substr(hash('sha256', mt_rand() . microtime()), 0, 17);
@@ -135,12 +135,12 @@ class PaymentCODController extends Controller
             $charge = "ATM_" . substr(hash('sha256', mt_rand() . microtime()), 0, 22);
         }
 ;
-        
+
         $order_data_obj = json_decode (json_encode ($order), FALSE);
 
 
         $charge_id = strtoupper($charge);
-       
+
 
             $order = new ProductOrder;
             $order->billing_fname = $request->billing_fname;
@@ -182,11 +182,11 @@ class PaymentCODController extends Controller
             // var_dump($order['charge_id']);
             $order['user_id'] = Auth::user()->id;
             if($request->method == 'delivery'){
-                $order['method'] = 'Thanh toán khi nhận hàng'; 
+                $order['method'] = 'Thanh toán khi nhận hàng';
             }else if($request->method == 'atm'){
-                $order['method'] = 'Chuyển khoản'; 
+                $order['method'] = 'Chuyển khoản';
             }
-            
+
 
             $order->save();
             $order_id = $order->id;
@@ -222,7 +222,7 @@ class PaymentCODController extends Controller
                 ]);
             }
 
-            
+
             foreach ($cart as $id => $item) {
                 $product = Product::findOrFail($id);
                 $stock = $product->stock - $item['qty'];
@@ -232,15 +232,15 @@ class PaymentCODController extends Controller
             }
 
             $fileName = Str::random(4) . time() . '.pdf';
-            $path = 'assets/front/invoices/product/' . $fileName;
+            $path = public_path() . '/assets/front/invoices/product/' . $fileName;
             $data['order']  = $order;
-            // $pdf = PDF::loadView('pdf.product', $data);
-         
+            $pdf = PDF::loadView('pdf.product', $data);
+
             // return $pdf->stream( 'pdf.product.pdf' )->header('Content-Type','application/pdf');
             $pdf->save($path);
 
             // return $pdf->stream('pdf.product.pdf');
-            
+
             ProductOrder::where('id', $order_id)->update([
                 'invoice_number' => $fileName
             ]);
