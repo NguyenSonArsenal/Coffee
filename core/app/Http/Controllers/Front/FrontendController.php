@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\District;
+use App\Models\Town;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Feature;
@@ -323,5 +325,17 @@ class FrontendController extends Controller
         app()->setLocale($lang);
 
         return redirect()->route('front.index');
+    }
+
+    public function getDistrict()
+    {
+        $data = District::where('province_id', request('id'))->get();
+        return response()->json($data);
+    }
+
+    public function getTown()
+    {
+        $data = Town::where('district_id', request('id'))->get();
+        return response()->json($data);
     }
 }

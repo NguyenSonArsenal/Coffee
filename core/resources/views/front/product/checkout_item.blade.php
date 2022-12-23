@@ -1,6 +1,13 @@
 @extends('front.layout')
 
 @section('content')
+<style>
+
+</style>
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+
 <!--   hero area start   -->
 <section class="page-title-area d-flex align-items-center" style="background-image:url('{{asset('assets/front/img/'.$bs->breadcrumb)}}')">
     <div class="container">
@@ -64,9 +71,52 @@
                                         <input type="text" name="billing_lname" value="{{$user->billing_lname}}">
                                     </div>
                                     @error('billing_lname')
-                                        <p class="text-danger">{{convertUtf8($message)}}</p>
+{{--                                        <p class="text-danger">{{convertUtf8($message)}}</p>--}}
                                     @enderror
                                 </div>
+
+                                <div class="col-md-12">
+                                    <div class="field-label">{{__('Town / City')}} *</div>
+                                    <div class="field-input">
+                                        <select name="billing_city" id="billing_city">
+                                            @foreach($province as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    @error('billing_city')
+                                    <p class="text-danger">{{convertUtf8($message)}}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="field-label">Quận / Huyện *</div>
+                                    <div class="field-input">
+                                        <select name="billing_district" id="billing_district">
+                                            @foreach($district as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    @error('billing_district')
+                                    <p class="text-danger">{{convertUtf8($message)}}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="field-label">Xã / Phường *</div>
+                                    <div class="field-input">
+                                        <select name="billing_town" id="billing_town">
+                                            @foreach($town as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    @error('billing_town')
+                                    <p class="text-danger">{{convertUtf8($message)}}</p>
+                                    @enderror
+                                </div>
+
                                 <div class="col-md-12">
                                     <div class="field-label">{{__('Address')}} *</div>
                                     <div class="field-input">
@@ -77,15 +127,6 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-md-12">
-                                    <div class="field-label">{{__('Town / City')}} *</div>
-                                    <div class="field-input">
-                                        <input type="text" name="billing_city" value="{{$user->billing_city}}">
-                                    </div>
-                                    @error('billing_city')
-                                    <p class="text-danger">{{convertUtf8($message)}}</p>
-                                    @enderror
-                                </div>
                                 <div class="col-md-12">
                                     <div class="field-label">{{__('Contact Email')}} *</div>
                                     <div class="field-input">
@@ -110,7 +151,7 @@
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                     <div class="form shipping-info">
                         <div class="shop-title-box">
-                            <h3>{{__('Shipping Address')}}<div class="field-label">(nếu có)</div></h3>
+                            <h3>{{__('Shipping Address')}} (nếu có)</h3>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
@@ -140,15 +181,6 @@
                                 <p class="text-danger">{{convertUtf8($message)}}</p>
                                 @enderror
                             </div>
-                            <div class="col-md-12">
-                                <div class="field-label">{{__('Address')}} *</div>
-                                <div class="field-input">
-                                    <input type="text" name="shpping_address" value="{{$user->shpping_address}}">
-                                </div>
-                                @error('shpping_address')
-                                <p class="text-danger">{{convertUtf8($message)}}</p>
-                                @enderror
-                            </div>
 
                             <div class="col-md-12">
                                 <div class="field-label">{{__('Town / City')}} *</div>
@@ -159,6 +191,37 @@
                                 <p class="text-danger">{{convertUtf8($message)}}</p>
                                 @enderror
                             </div>
+
+                            <div class="col-md-12">
+                                <div class="field-label">Quận / Huyện *</div>
+                                <div class="field-input">
+                                    <input type="text" name="shpping_city" value="{{$user->shpping_city}}">
+                                </div>
+                                @error('shpping_city')
+                                <p class="text-danger">{{convertUtf8($message)}}</p>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="field-label">Xã phường *</div>
+                                <div class="field-input">
+                                    <input type="text" name="shpping_city" value="{{$user->shpping_city}}">
+                                </div>
+                                @error('shpping_city')
+                                <p class="text-danger">{{convertUtf8($message)}}</p>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="field-label">{{__('Address')}} *</div>
+                                <div class="field-input">
+                                    <input type="text" name="shpping_address" value="{{$user->shpping_address}}">
+                                </div>
+                                @error('shpping_address')
+                                <p class="text-danger">{{convertUtf8($message)}}</p>
+                                @enderror
+                            </div>
+
                             <div class="col-md-12">
                                 <div class="field-label">{{__('Contact Email')}} *</div>
                                 <div class="field-input">
@@ -407,6 +470,46 @@
   .form-group .form-control{
     color: #000!important;
   }
+
+  *:focus {
+      outline: none;
+  }
+
+  .select2 {
+      width: 100% !important;
+  }
+  .select2-container {
+      width: 100% !important;
+      outline: none;
+  }
+
+  .selection {
+      width: 100%;
+  }
+  .selection .select2-selection {
+      border: 1px solid #f0eef9;
+      color: #848484;
+      display: block;
+      font-size: 16px;
+      height: 48px;
+      margin-bottom: 25px;
+      padding: 0 15px;
+      width: 100%;
+      border-radius: 0;
+      -webkit-transition: all 500ms ease;
+      -o-transition: all 500ms ease;
+      transition: all 500ms ease;
+  }
+
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+      line-height: 48px;
+  }
+
+  .nice-select {
+      border-radius: 0;
+      width: 100%;
+      display: none;
+  }
 </style>
 
 
@@ -423,5 +526,48 @@
 </script>
 
 
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="{{asset('assets/front/js/checkout.js')}}"></script>
+
+<script>
+    $(document).ready(function() {
+        $('select[name="billing_city"]').select2();
+        $('select[name="billing_district"]').select2();
+        $('select[name="billing_town"]').select2();
+
+        $('select[name="billing_city"]').on('change',function() {
+            let id = $(this).val();
+            $.ajax({
+                url: '{{ route("get.district") }}',
+                type: "GET",
+                data: {id},
+                dataType: "json",
+                success: function (data) {
+                    $('select[name="billing_district"]').empty();
+                    $.each(data, function (key, value) {
+                        $('select[name="billing_district"]').append('<option value="' + value.id + '">' + value.name + '</option>');
+
+                    });
+                }
+            });
+        });
+
+        $('select[name="billing_district"]').on('change',function() {
+            let id = $(this).val();
+            $.ajax({
+                url: '{{ route("get.town") }}',
+                type: "GET",
+                data: {id},
+                dataType: "json",
+                success: function (data) {
+                    $('select[name="billing_town"]').empty();
+                    $.each(data, function (key, value) {
+                        $('select[name="billing_town"]').append('<option value="' + value.id + '">' + value.name + '</option>');
+
+                    });
+                }
+            });
+        });
+    });
+</script>
 @endsection

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Models\District;
+use App\Models\Province;
+use App\Models\Town;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\BasicSetting as BS;
@@ -439,6 +442,11 @@ class ProductController extends Controller
             $data['user'] = Auth::user();
             // $data['stripe'] = PaymentGateway::find(14);
             // $data['paypal'] = PaymentGateway::find(15);
+
+            $data['province'] = Province::all();
+            $data['district'] = District::all();
+            $data['town'] = Town::all();
+
             return view('front.product.checkout_item', $data);
         } else {
             Session::put('link', url()->current());

@@ -39,7 +39,7 @@ Route::middleware(['setlang'])->group(function () {
     Route::get('/payment/{packageid}/cancle', 'Front\FrontendController@paycancle')->name('front.payment.cancle');
     Route::post('/paypal/submit', 'Payment\PaypalController@store')->name('front.paypal.submit');
     Route::get('/paypal/{packageid}/notify', 'Payment\PaypalController@notify')->name('front.paypal.notify');
-  
+
 
 
     Route::get('/team', 'Front\FrontendController@team')->name('front.team');
@@ -88,6 +88,8 @@ Route::middleware(['setlang'])->group(function () {
 });
 Route::get('/changelanguage/{lang}', 'Front\FrontendController@changeLanguage')->name('changeLanguage');
 Route::get('/teams', 'Front\FrontendController@teams')->name('front.teams');
+Route::get('/district-by-province', 'Front\FrontendController@getDistrict')->name('get.district');
+Route::get('/town-by-district', 'Front\FrontendController@getTown')->name('get.town');
 
 // review
 Route::post('product/review/submit', 'Front\ReviewController@reviewsubmit')->name('product.review.submit');
