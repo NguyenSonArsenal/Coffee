@@ -95,8 +95,12 @@ $selLang = \App\Models\Language::where('code', request()->input('language'))->fi
                           </td>
 
                           <td>
-                            <div>Mặc định: {{number_format($shipping->charge,0,',','.')}}</div>
-                            <div>Thành phố: {{number_format($shipping->charge_city,0,',','.')}}</div>
+                              @if ($shipping->title == 'Giao hàng tận nhà')
+                                  <div>Mặc định: {{number_format(env('FEE_SHIP_CITY', 20000),0,',','.')}}</div>
+                                  <div>Thành phố: {{number_format(env('FEE_SHIP_DEFAULT', 35000),0,',','.')}}</div>
+                              @else
+                                  0
+                              @endif
                           </td>
 
                           <td>

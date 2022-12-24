@@ -81,16 +81,16 @@
               <input type="text" class="form-control" name="text" value="{{convertUtf8($shipping->text)}}" placeholder="Enter text">
             </div>
 
-            <div class="form-group">
-              <label for="">Charge ({{$be->base_currency_text}}) **</label>
-              <input type="text" class="form-control" name="charge" value="{{number_format($shipping->charge,0,',','.')}}" placeholder="Enter charge">
-              <p id="errcharge" class="mb-0 text-danger em"></p>
-            </div>
-          <div class="form-group">
-              <label for="">Charge city ({{$be->base_currency_text}}) **</label>
-              <input type="text" class="form-control" name="charge_city" value="{{number_format($shipping->charge_city,0,',','.')}}" placeholder="Enter charge city">
-              <p id="errcharge_city" class="mb-0 text-danger em"></p>
-          </div>
+{{--            <div class="form-group">--}}
+{{--              <label for="">Charge ({{$be->base_currency_text}}) **</label>--}}
+{{--              <input type="text" class="form-control" name="charge" value="{{number_format($shipping->charge,0,',','.')}}" placeholder="Enter charge">--}}
+{{--              <p id="errcharge" class="mb-0 text-danger em"></p>--}}
+{{--            </div>--}}
+{{--          <div class="form-group">--}}
+{{--              <label for="">Charge city ({{$be->base_currency_text}}) **</label>--}}
+{{--              <input type="text" class="form-control" name="charge_city" value="{{number_format($shipping->charge_city,0,',','.')}}" placeholder="Enter charge city">--}}
+{{--              <p id="errcharge_city" class="mb-0 text-danger em"></p>--}}
+{{--          </div>--}}
 
           </form>
             </div>

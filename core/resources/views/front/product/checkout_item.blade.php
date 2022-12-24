@@ -185,7 +185,11 @@
                             <div class="col-md-12">
                                 <div class="field-label">{{__('Town / City')}} *</div>
                                 <div class="field-input">
-                                    <input type="text" name="shpping_city" value="{{$user->shpping_city}}">
+                                    <select name="shpping_city" id="shpping_city">
+                                        @foreach($province as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 @error('shpping_city')
                                 <p class="text-danger">{{convertUtf8($message)}}</p>
@@ -195,9 +199,13 @@
                             <div class="col-md-12">
                                 <div class="field-label">Quận / Huyện *</div>
                                 <div class="field-input">
-                                    <input type="text" name="shpping_city" value="{{$user->shpping_city}}">
+                                    <select name="shpping_district" id="shpping_district">
+                                        @foreach($district as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
-                                @error('shpping_city')
+                                @error('shpping_district')
                                 <p class="text-danger">{{convertUtf8($message)}}</p>
                                 @enderror
                             </div>
@@ -205,9 +213,13 @@
                             <div class="col-md-12">
                                 <div class="field-label">Xã phường *</div>
                                 <div class="field-input">
-                                    <input type="text" name="shpping_city" value="{{$user->shpping_city}}">
+                                    <select name="shpping_town" id="shpping_town">
+                                        @foreach($town as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
-                                @error('shpping_city')
+                                @error('shpping_town')
                                 <p class="text-danger">{{convertUtf8($message)}}</p>
                                 @enderror
                             </div>
@@ -267,15 +279,19 @@
                                             <td>
                                                 <input type="radio"
                                                        {{$key == 0 ? 'checked' : ''}} name="shipping_charge"
-                                                       {{$cart == null ? 'disabled' : ''}} data="{{$charge->charge}}"
+                                                       {{$cart == null ? 'disabled' : ''}} data="{{$charge->charge_city}}"
                                                        class="shipping-charge" value="{{$charge->id}}">
                                             </td>
                                             <td>
                                                 <p class="mb-2"><strong>{{convertUtf8($charge->title)}}</strong></p>
                                                 <p><small>{{convertUtf8($charge->text)}}</small></p>
                                             </td>
-                                            <td>{{$be->base_currency_symbol_position == 'left' ? $be->base_currency_symbol : ''}}
-                                                <span>{{number_format($charge->charge,0,',','.')}}</span> {{$be->base_currency_symbol_position == 'right' ? $be->base_currency_symbol : ''}}
+                                            <td>
+                                                {{$be->base_currency_symbol_position == 'left' ? $be->base_currency_symbol : ''}}
+                                                <span>
+                                                    {{number_format($charge->title == 'Giao hàng tận nhà' ? $feeShipCity : $charge->charge,0,',','.')}}
+                                                </span>
+                                                {{$be->base_currency_symbol_position == 'right' ? $be->base_currency_symbol : ''}}
                                             </td>
                                         </tr>
                                     @endforeach
@@ -512,10 +528,7 @@
   }
 </style>
 
-
-
 @endsection
-
 
 @section('script')
 <script src="https://js.stripe.com/v2/"></script>
@@ -535,8 +548,23 @@
         $('select[name="billing_district"]').select2();
         $('select[name="billing_town"]').select2();
 
+        $('select[name="shpping_city"]').select2();
+        $('select[name="shpping_district"]').select2();
+        $('select[name="shpping_town"]').select2();
+
         $('select[name="billing_city"]').on('change',function() {
             let id = $(this).val();
+            if (id == 1 || id == 79) {
+                // HN or HCM
+                {{--$('.shipping-method tbody tr:last-of-type td:last-of-type span').text({{env('FEE_SHIP_CITY', 20000)}});--}}
+                $('.shipping-method tbody tr:last-of-type td:last-of-type span').text(`{{ number_format(env('FEE_SHIP_CITY', 20000),0,",",".") }}`);
+                {{--$('.shipping-method tbody tr:last-of-type td:first-of-type input').data(`{{ number_format(env('FEE_SHIP_CITY', 20000),0,",",".") }}`);--}}
+                $('.shipping-method tbody tr:last-of-type td:first-of-type input').attr("data", `{{ (env('FEE_SHIP_CITY', 20000)) }}`);
+            } else {
+                $('.shipping-method tbody tr:last-of-type td:last-of-type span').text(`{{ number_format(env('FEE_SHIP_DEFAULT', 35000),0,",",".") }}`);
+                {{--$('.shipping-method tbody tr:last-of-type td:first-of-type input').data(`{{ number_format(env('FEE_SHIP_DEFAULT', 35000),0,",",".") }}`);--}}
+                $('.shipping-method tbody tr:last-of-type td:first-of-type input').attr("data", `{{ (env('FEE_SHIP_DEFAULT', 35000)) }}`);
+            }
             $.ajax({
                 url: '{{ route("get.district") }}',
                 type: "GET",
@@ -563,6 +591,40 @@
                     $('select[name="billing_town"]').empty();
                     $.each(data, function (key, value) {
                         $('select[name="billing_town"]').append('<option value="' + value.id + '">' + value.name + '</option>');
+
+                    });
+                }
+            });
+        });
+
+        $('select[name="shpping_city"]').on('change',function() {
+            let id = $(this).val();
+            $.ajax({
+                url: '{{ route("get.district") }}',
+                type: "GET",
+                data: {id},
+                dataType: "json",
+                success: function (data) {
+                    $('select[name="shpping_district"]').empty();
+                    $.each(data, function (key, value) {
+                        $('select[name="shpping_district"]').append('<option value="' + value.id + '">' + value.name + '</option>');
+
+                    });
+                }
+            });
+        });
+
+        $('select[name="shpping_district"]').on('change',function() {
+            let id = $(this).val();
+            $.ajax({
+                url: '{{ route("get.town") }}',
+                type: "GET",
+                data: {id},
+                dataType: "json",
+                success: function (data) {
+                    $('select[name="shpping_town"]').empty();
+                    $.each(data, function (key, value) {
+                        $('select[name="shpping_town"]').append('<option value="' + value.id + '">' + value.name + '</option>');
 
                     });
                 }

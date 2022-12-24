@@ -446,6 +446,8 @@ class ProductController extends Controller
             $data['province'] = Province::all();
             $data['district'] = District::all();
             $data['town'] = Town::all();
+            $data['feeShipCity'] = env('FEE_SHIP_CITY', 20000);
+            $data['feeShipDefault'] = env('FEE_SHIP_DEFAULT', 35000);
 
             return view('front.product.checkout_item', $data);
         } else {

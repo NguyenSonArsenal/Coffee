@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Payment\product;
 
 use App\BasicSetting;
+use App\Models\Province;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use PHPMailer\PHPMailer\PHPMailer;
@@ -75,16 +76,18 @@ class PaymentCODController extends Controller
             $total  += $product->current_price * $item['qty'];
         }
         $shipping_method = '';
-        if ($request->shipping_charge != 0) {
-            $shipping = ShippingCharge::findOrFail($request->shipping_charge);
-            $shippig_charge = $shipping->charge;
-            $shipping_method = $shipping->title;
+//        if ($request->shipping_charge != 0) {
+//            $shipping = ShippingCharge::findOrFail($request->shipping_charge);
+//            $shippig_charge = $shipping->charge;
+//            $shipping_method = $shipping->title;
+//
+//        } else {
+//            $shippig_charge = 0;
+//        }
+//
+//        dd($shippig_charge, request()->all());
 
-        } else {
-            $shippig_charge = 0;
-        }
-
-
+        $shippig_charge = in_array(request('billing_city'), [1, 79]) ? env('FEE_SHIP_CITY', 20000) : env('FEE_SHIP_DEFAULT', 35000);
         $total = round($total + $shippig_charge, 2);
 
 
@@ -141,13 +144,15 @@ class PaymentCODController extends Controller
 
         $charge_id = strtoupper($charge);
 
-
+            $province = Province::where('id', $request->billing_city)->first();
             $order = new ProductOrder;
             $order->billing_fname = $request->billing_fname;
             $order->billing_lname = $request->billing_lname;
             $order->billing_email = $request->billing_email;
             $order->billing_address = $request->billing_address;
-            $order->billing_city = $request->billing_city;
+            $order->billing_city = !empty($province->name) ? $province->name : '';
+            $order->billing_district = $request->billing_district;
+            $order->billing_town = $request->billing_town;
             $order->billing_country = $request->billing_country;
             $order->billing_number = $request->billing_number;
             $order->shpping_fname = $request->shpping_fname;
@@ -155,6 +160,8 @@ class PaymentCODController extends Controller
             $order->shpping_email = $request->shpping_email;
             $order->shpping_address = $request->shpping_address;
             $order->shpping_city = $request->shpping_city;
+            $order->shpping_district = $request->shpping_district;
+            $order->shpping_town = $request->shpping_town;
             $order->shpping_country = $request->shpping_country;
             $order->shpping_number = $request->shpping_number;
             // var_dump($order_data);
