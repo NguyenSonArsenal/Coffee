@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class ShippingCharge extends Model
 {
-    protected $fillable = ['title','text','language_id','charge'];
+    protected $fillable = ['title', 'text', 'language_id', 'charge', 'charge_city'];
 }

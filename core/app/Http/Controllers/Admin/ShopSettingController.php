@@ -34,6 +34,7 @@ class ShopSettingController extends Controller
         'title' => 'required',
         'text' => 'nullable|max:255',
         'charge' => 'required',
+        'charge_city' => 'required',
     ];
 
     $validator = Validator::make($request->all(), $rules);
@@ -64,6 +65,7 @@ class ShopSettingController extends Controller
         'title' => 'required',
         'text' => 'nullable|max:255',
         'charge' => 'required',
+        'charge_city' => 'required',
     ];
 
     $validator = Validator::make($request->all(), $rules);

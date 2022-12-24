@@ -19,6 +19,7 @@ class CreateShippingChargesTable extends Migration
             $table->integer('language_id')->nullable();
             $table->string('text')->nullable();
             $table->decimal('charge', 11, 2)->nullable();
+            $table->decimal('charge_city', 11, 2)->nullable();
             $table->timestamps();
         });
     }

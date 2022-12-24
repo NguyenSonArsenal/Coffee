@@ -95,7 +95,8 @@ $selLang = \App\Models\Language::where('code', request()->input('language'))->fi
                           </td>
 
                           <td>
-                            {{number_format($shipping->charge,0,',','.')}}
+                            <div>Mặc định: {{number_format($shipping->charge,0,',','.')}}</div>
+                            <div>Thành phố: {{number_format($shipping->charge_city,0,',','.')}}</div>
                           </td>
 
                           <td>
