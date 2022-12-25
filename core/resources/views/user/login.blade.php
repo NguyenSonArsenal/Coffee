@@ -36,7 +36,7 @@
                         @csrf
                         <div class="input-box">
                             <span>Phone *</span>
-                            <input type="text" name="phone" required value="{{Request::old('email')}}">
+                            <input type="text" name="number" required value="{{Request::old('number')}}">
                             @if(Session::has('err'))
                                 <p class="text-danger mb-2 mt-2">{{Session::get('err')}}</p>
                             @endif

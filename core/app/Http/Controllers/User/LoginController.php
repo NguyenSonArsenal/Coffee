@@ -61,7 +61,7 @@ class LoginController extends Controller
 
 
         $rules = [
-            'phone'   => 'required',
+            'number'   => 'required',
         ];
 
         if ($bs->is_recaptcha == 1) {
@@ -73,17 +73,17 @@ class LoginController extends Controller
         ];
         $request->validate($rules, $messages);
 
-        $phone = request('phone');
+        $phone = request('number');
+        if (!is_numeric($phone) || strlen($phone) != 10) {
+            return back()->with('err', "Please enter phone with 10 number")->withInput();
+        }
 
-        $user = User::where('phone', $phone)->first();
+        $user = User::where('number', $phone)->first();
         if (empty($user)) {
-            return back()->with('err', __("Credentials Doesn\'t Match !"));
-        }
-        if (strtoupper($user->email_verified) == 'no') {
-            return back()->with('err', __('Your account is not verified!'));
-        }
-        if ($user->status == '0') {
-            return back()->with('err', __('Your account has been banned'));
+            $user = new User();
+            $user->number = $phone;
+            $user->status = 1;
+            $user->save();
         }
         Auth::guard('web')->login($user);
         return redirect($redirectUrl);

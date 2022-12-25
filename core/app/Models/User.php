@@ -48,7 +48,6 @@ class User extends Authenticatable
         'status',
         'verification_link',
         'email_verified',
-        'phone',
     ];
 
     /**

@@ -30,25 +30,36 @@
                                 </div>
                                 <div class="main-info">
                                     <h5>{{__('User')}}</h5>
-                                    <ul class="list">
-                                        <li><span>{{__('Username')}}:</span></li>
-                                        <li><span>{{__('Email')}}:</span></li>
-                                        <li><span>{{__('Phone')}}:</span></li>
-                                        <li><span>{{__('City')}}:</span></li>
-                                        <li><span>{{__('State')}}:</span></li>
-                                        <li><span>{{__('Address')}}:</span></li>
-                                        <li><span>{{__('Country')}}:</span></li>
-                                    </ul>
-                                    <ul class="list">
-                                        <li>{{convertUtf8($user->username)}}</li>
-                                        <li>{{convertUtf8($user->email)}}</li>
-                                        <li>{{convertUtf8($user->number)}}</li>
-                                        <li>{{convertUtf8($user->fax)}}</li>
-                                        <li>{{convertUtf8($user->city)}}</li>
-                                        <li>{{convertUtf8($user->state)}}</li>
-                                        <li>{{convertUtf8($user->address)}}</li>
-                                        <li>{{convertUtf8($user->country)}}</li>
-                                    </ul>
+                                    <table>
+                                        <tr>
+                                            <td style="width: 120px"><span>{{__('Username')}}:</span></td>
+                                            <td>{{convertUtf8($user->username)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 120px"><span>{{__('Email')}}:</span></td>
+                                            <td>{{convertUtf8($user->email)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 120px"><span>{{__('Phone')}}:</span></td>
+                                            <td>{{convertUtf8($user->number)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 120px"><span>{{__('City')}}:</span></td>
+                                            <td>{{convertUtf8($user->city)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 120px"><span>{{__('State')}}:</span></td>
+                                            <td>{{convertUtf8($user->state)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 120px"><span>{{__('Address')}}:</span></td>
+                                            <td>{{convertUtf8($user->address)}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 120px"><span>{{__('Country')}}:</span></td>
+                                            <td>{{convertUtf8($user->country)}}</td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
                         </div>
