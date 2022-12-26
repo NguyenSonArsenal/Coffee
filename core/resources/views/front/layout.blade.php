@@ -323,7 +323,7 @@
                 <div class="col-lg-12">
                     <div class="footer-copyright d-block justify-content-center d-md-flex">
                         {!! nl2br(replaceBaseUrl(convertUtf8($bs->copyright_text)))  !!}
-                        <a class="footer-hover" href="http://coffee_bankus.com:8000/">B Coffee</a> 
+                        <a class="footer-hover" href="http://coffee_bankus.com:8000/">B Coffee</a>
                         <span style="margin-left: 5px">bảo lưu mọi quyền</span>
                     </div>
                 </div>
@@ -335,6 +335,39 @@
     <!--====== FOOTER PART ENDS ======-->
 
     <!--====== GO TO TOP PART START ======-->
+
+    <style>
+        .cart span {
+            position: absolute;
+            top: -10px;
+            right: -16px;
+            display: inline-block;
+            background-color: #000000;
+            color: #fff;
+            border-radius: 50%;
+            height: 20px;
+            width: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+        }
+    </style>
+
+    <div style="position: fixed; top: 50%; right: 40px; display: none" class="cart" id="cartQuantity2">
+        <a href="{{route('front.cart')}}">
+            <i class="fas fa-cart-plus"></i>
+            @php
+                $itemsCount = 0;
+                $cart = session()->get('cart');
+                if(!empty($cart)){
+                    foreach($cart as $p){
+                        $itemsCount += $p['qty'];
+                    }
+                }
+            @endphp
+            <span class="cart-quantity">{{$itemsCount}}</span>
+        </a>
+    </div>
 
     <div class="go-top-area">
         <div class="go-top-wrap">
@@ -379,7 +412,7 @@
     {{-- <!--====== Google Recaptcha ======-->
     <script src="{{asset('assets/front/js/recaptcha-api.js')}}?" async defer></script> --}}
 
-    <!--====== Bootstrap js ======--> 
+    <!--====== Bootstrap js ======-->
     <script src="{{asset('assets/front/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/front/js/popper.min.js')}}"></script>
 

@@ -15,6 +15,7 @@
                     $('.cart-amount').val(1);
                     $('#order_click_with_qty').val(1);
                     $("#cartQuantity").load(location.href + " #cartQuantity");
+                    $("#cartQuantity2").load(location.href + " #cartQuantity");
                 } else {
                     toastr["error"](res.error);
                     $('.cart-amount').val(1);
@@ -24,6 +25,7 @@
             $.get(cartUrl, function (res) {
                 if (res.message) {
                     $("#cartQuantity").load(location.href + " #cartQuantity");
+                    $("#cartQuantity2").load(location.href + " #cartQuantity");
                     toastr["success"](res.message);
                 } else {
                     toastr["error"](res.error);
@@ -87,14 +89,14 @@
                         // const formated = new Intl.NumberFormat('vi-VN', config).format(total.toFixed(3));
                         // console.log(total.toFixed(3));
                         // console.log(formated);
-                        // ở đây nếu mún check theo gôn ngữ thì. phải viết thêm  hàm để get code Ngôn ngữ 
-                        // rồi if else 
+                        // ở đây nếu mún check theo gôn ngữ thì. phải viết thêm  hàm để get code Ngôn ngữ
+                        // rồi if else
 
-                        // check xem mã gôn ngữ là gì .. rồi  
-                        // đ thay cái này tương ứng với gôn ngữ 
+                        // check xem mã gôn ngữ là gì .. rồi
+                        // đ thay cái này tương ứng với gôn ngữ
 
-                        // cái mã gôn ngũ lưu ở đâu ??? 
-                        // ccách 2: 
+                        // cái mã gôn ngũ lưu ở đâu ???
+                        // ccách 2:
 
                         //$(this).text(total.toFixed(3) + " đ");
                         $(".sub-total").load(location.href + " .sub-total");

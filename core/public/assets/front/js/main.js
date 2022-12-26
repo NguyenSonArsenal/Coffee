@@ -26,12 +26,14 @@ $(function () {
         var scroll = $(window).scrollTop();
         if (scroll < 110) {
             $(".navigation").removeClass("sticky");
+            $('#cartQuantity2').css("display", "none")
         } else {
             $(".navigation").addClass("sticky");
+            $('#cartQuantity2').css("display", "block")
         }
     });
 
-    //===== Mobile Menu 
+    //===== Mobile Menu
 
     $(".navbar-toggler").on('click', function () {
         $(this).toggleClass('active');
@@ -567,7 +569,7 @@ $(function () {
 
 
 
-    //===== 
+    //=====
 
 
 
