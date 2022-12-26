@@ -93,6 +93,18 @@
                                                         <li><p><span>{{__('Email')}}:</span>{{convertUtf8($data->billing_email)}}</p></li>
                                                         <li><p><span>{{__('Phone')}}:</span>{{convertUtf8($data->billing_number)}}</p></li>
                                                         <li><p><span>{{__('City')}}:</span>{{convertUtf8($data->billing_city)}}</p></li>
+                                                        <li>
+                                                            <p>
+                                                                <span>Quận/Huyện:</span>
+                                                                {{ !empty($data->billingDistrict->name) ? $data->billingDistrict->name : '' }}
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p>
+                                                                <span>Xã/Phường:</span>
+                                                                {{ !empty($data->billingTown->name) ? $data->billingTown->name : '' }}
+                                                            </p>
+                                                        </li>
                                                         <li><p><span>{{__('Address')}}:</span>{{convertUtf8($data->billing_address)}}</p></li>
                                                         <li><p><span>{{__('Country')}}:</span>{{convertUtf8($data->billing_country)}}</p></li>
                                                     </ul>

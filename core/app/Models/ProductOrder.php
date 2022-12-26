@@ -42,4 +42,13 @@ class ProductOrder extends Model
         return $this->hasMany('App\Models\OrderItem');
     }
 
+    public function billingDistrict()
+    {
+        return $this->belongsTo(District::class, 'billing_district', 'id');
+    }
+
+    public function billingTown()
+    {
+        return $this->belongsTo(Town::class, 'billing_town', 'id');
+    }
 }

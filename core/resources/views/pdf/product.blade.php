@@ -105,7 +105,24 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">{{__('Shipping City')}}:</th>
-                                        <td>{{$order->shpping_city}}</td>
+                                        @php
+                                            $city2 = \App\Models\Province::where('id', $order->shpping_city)->first();
+                                        @endphp
+                                        <td>{{ !empty($city2) ? $city2->name : '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Quận/Huyện:</th>
+                                        @php
+                                            $district2 = \App\Models\District::where('id', $order->shpping_district)->first();
+                                        @endphp
+                                        <td>{{ !empty($district2) ? $district2->name : '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Xã/Phường:</th>
+                                        @php
+                                            $town2 = \App\Models\Town::where('id', $order->shpping_town)->first();
+                                        @endphp
+                                        <td>{{ !empty($town2) ? $town2->name : '' }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">{{__('Shipping Country')}}:</th>
@@ -141,6 +158,20 @@
                                     <tr>
                                         <th scope="row">{{__('Billing City')}}:</th>
                                         <td>{{$order->billing_city}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Quuận/Huyện:</th>
+                                        @php
+                                            $district = \App\Models\District::where('id', $order->billing_district)->first();
+                                        @endphp
+                                        <td>{{ !empty($district) ? $district->name : '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Xã/Phường:</th>
+                                        @php
+                                            $town = \App\Models\Town::where('id', $order->billing_town)->first();
+                                        @endphp
+                                        <td>{{ !empty($town) ? $town->name : '' }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">{{__('Billing Country')}}:</th>
