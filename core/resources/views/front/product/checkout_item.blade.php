@@ -90,7 +90,7 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                    <div class="field-label">Quận / Huyện *</div>
+                                    <div class="field-label">Quận / Huyện</div>
                                     <div class="field-input">
                                         <select name="billing_district" id="billing_district">
                                             @foreach($district as $item)
@@ -104,12 +104,12 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                    <div class="field-label">Xã / Phường *</div>
+                                    <div class="field-label">Xã / Phường</div>
                                     <div class="field-input">
                                         <select name="billing_town" id="billing_town">
-                                            @foreach($town as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                            @endforeach
+{{--                                            @foreach($town as $item)--}}
+{{--                                                <option value="{{ $item->id }}">{{ $item->name }}</option>--}}
+{{--                                            @endforeach--}}
                                         </select>
                                     </div>
                                     @error('billing_town')
@@ -197,7 +197,7 @@
                             </div>
 
                             <div class="col-md-12">
-                                <div class="field-label">Quận / Huyện *</div>
+                                <div class="field-label">Quận / Huyện</div>
                                 <div class="field-input">
                                     <select name="shpping_district" id="shpping_district">
                                         @foreach($district as $item)
@@ -211,12 +211,12 @@
                             </div>
 
                             <div class="col-md-12">
-                                <div class="field-label">Xã phường *</div>
+                                <div class="field-label">Xã / Phường</div>
                                 <div class="field-input">
                                     <select name="shpping_town" id="shpping_town">
-                                        @foreach($town as $item)
-                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                        @endforeach
+{{--                                        @foreach($town as $item)--}}
+{{--                                            <option value="{{ $item->id }}">{{ $item->name }}</option>--}}
+{{--                                        @endforeach--}}
                                     </select>
                                 </div>
                                 @error('shpping_town')
